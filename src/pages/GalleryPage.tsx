@@ -109,6 +109,14 @@ const galleryImages = {
   ]
 };
 
+// Combine all gallery images for the "All" filter
+const allImages = [
+  ...galleryImages.events,
+  ...galleryImages.classActivities,
+  ...galleryImages.studentWork,
+  ...galleryImages.graduation
+];
+
 const GalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState<{src: string, caption: string} | null>(null);
 
@@ -137,15 +145,39 @@ const GalleryPage = () => {
       {/* Gallery Section */}
       <section className="py-16">
         <div className="container-custom">
-          <Tabs defaultValue="classActivities" className="space-y-8">
+          <Tabs defaultValue="all" className="space-y-8">
             <div className="flex justify-center">
               <TabsList>
+                <TabsTrigger value="all">All</TabsTrigger>
                 <TabsTrigger value="events">Events</TabsTrigger>
                 <TabsTrigger value="classActivities">Class Activities</TabsTrigger>
                 <TabsTrigger value="studentWork">Student Work</TabsTrigger>
                 <TabsTrigger value="graduation">Graduation</TabsTrigger>
               </TabsList>
             </div>
+
+            <TabsContent value="all">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {allImages.map((image) => (
+                  <div 
+                    key={image.id}
+                    className="cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                    onClick={() => openLightbox(image)}
+                  >
+                    <div className="aspect-w-4 aspect-h-3">
+                      <img 
+                        src={image.src} 
+                        alt={image.alt}
+                        className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <p className="text-sm text-gray-700">{image.caption}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
 
             <TabsContent value="events">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

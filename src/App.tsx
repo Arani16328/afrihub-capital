@@ -13,6 +13,7 @@ import AdmissionsPage from "./pages/AdmissionsPage";
 import GalleryPage from "./pages/GalleryPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 // Import individual course pages
 import BeautyHairdressing from "./pages/courses/BeautyHairdressing";
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
+        <WhatsAppButton />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

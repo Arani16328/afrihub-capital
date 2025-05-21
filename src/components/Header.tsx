@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Mail, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -9,6 +9,7 @@ const Header = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScroll, setLastScroll] = useState(0);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -68,12 +69,12 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/courses">Courses</NavLink>
-          <NavLink to="/admissions">Admissions</NavLink>
-          <NavLink to="/gallery">Gallery</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/" isActive={location.pathname === "/"}>Home</NavLink>
+          <NavLink to="/about" isActive={location.pathname === "/about"}>About</NavLink>
+          <NavLink to="/courses" isActive={location.pathname === "/courses"}>Courses</NavLink>
+          <NavLink to="/admissions" isActive={location.pathname === "/admissions"}>Admissions</NavLink>
+          <NavLink to="/gallery" isActive={location.pathname === "/gallery"}>Gallery</NavLink>
+          <NavLink to="/contact" isActive={location.pathname === "/contact"}>Contact</NavLink>
         </nav>
 
         <div className="hidden md:block">
@@ -104,12 +105,12 @@ const Header = () => {
             </button>
           </div>
           <nav className="container-custom flex flex-col space-y-4 py-8">
-            <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
-            <MobileNavLink to="/about" onClick={toggleMenu}>About</MobileNavLink>
-            <MobileNavLink to="/courses" onClick={toggleMenu}>Courses</MobileNavLink>
-            <MobileNavLink to="/admissions" onClick={toggleMenu}>Admissions</MobileNavLink>
-            <MobileNavLink to="/gallery" onClick={toggleMenu}>Gallery</MobileNavLink>
-            <MobileNavLink to="/contact" onClick={toggleMenu}>Contact</MobileNavLink>
+            <MobileNavLink to="/" onClick={toggleMenu} isActive={location.pathname === "/"}>Home</MobileNavLink>
+            <MobileNavLink to="/about" onClick={toggleMenu} isActive={location.pathname === "/about"}>About</MobileNavLink>
+            <MobileNavLink to="/courses" onClick={toggleMenu} isActive={location.pathname === "/courses"}>Courses</MobileNavLink>
+            <MobileNavLink to="/admissions" onClick={toggleMenu} isActive={location.pathname === "/admissions"}>Admissions</MobileNavLink>
+            <MobileNavLink to="/gallery" onClick={toggleMenu} isActive={location.pathname === "/gallery"}>Gallery</MobileNavLink>
+            <MobileNavLink to="/contact" onClick={toggleMenu} isActive={location.pathname === "/contact"}>Contact</MobileNavLink>
             <div className="pt-4">
               <Button className="w-full bg-primary hover:bg-primary-hover text-white">Apply Now</Button>
             </div>
@@ -120,10 +121,21 @@ const Header = () => {
   );
 };
 
-const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
+const NavLink = ({ 
+  to, 
+  children,
+  isActive
+}: { 
+  to: string; 
+  children: React.ReactNode;
+  isActive: boolean;
+}) => (
   <Link 
     to={to} 
-    className="text-gray-700 hover:text-primary font-medium transition-colors duration-300"
+    className={`relative transition-colors duration-300 hover:text-primary ${
+      isActive ? 'text-primary' : 'text-gray-700'
+    } after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-primary after:bottom-0 after:left-0 
+    ${isActive ? 'after:scale-x-100' : 'after:scale-x-0'} after:transition-transform after:duration-300 hover:after:scale-x-100 after:origin-bottom-left`}
   >
     {children}
   </Link>
@@ -132,15 +144,17 @@ const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) =>
 const MobileNavLink = ({ 
   to, 
   children, 
-  onClick 
+  onClick,
+  isActive
 }: { 
   to: string; 
   children: React.ReactNode;
   onClick: () => void;
+  isActive: boolean;
 }) => (
   <Link 
     to={to} 
-    className="text-xl font-medium text-gray-800 hover:text-primary py-2"
+    className={`text-xl font-medium py-2 ${isActive ? 'text-primary' : 'text-gray-800'} hover:text-primary`}
     onClick={onClick}
   >
     {children}
