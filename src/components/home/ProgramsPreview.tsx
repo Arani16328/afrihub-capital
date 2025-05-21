@@ -9,42 +9,42 @@ const programs = [
     title: "Beauty & Hairdressing",
     image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=500&auto=format&fit=crop",
     description: "Master the art of cosmetology, hairdressing, and beauty therapy",
-    path: "/courses#beauty"
+    path: "/courses/beauty-hairdressing"
   },
   {
     id: "catering",
     title: "Catering & Hospitality",
     image: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?q=80&w=500&auto=format&fit=crop",
     description: "Learn the skills to excel in the food and accommodation industry",
-    path: "/courses#catering"
+    path: "/courses/catering-hospitality"
   },
   {
     id: "baking",
     title: "Baking Technology",
     image: "https://images.unsplash.com/photo-1556471013-0001958d2f12?q=80&w=500&auto=format&fit=crop",
     description: "Perfect your baking and decoration techniques for cakes and pastries",
-    path: "/courses#baking"
+    path: "/courses/baking-technology"
   },
   {
     id: "ict",
     title: "ICT & Front Office",
     image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=500&auto=format&fit=crop",
     description: "Develop computer skills and front office management expertise",
-    path: "/courses#ict"
+    path: "/courses/ict-front-office"
   },
   {
     id: "nutrition",
     title: "Nutrition",
     image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=500&auto=format&fit=crop",
     description: "Study the science of food and its impact on human health",
-    path: "/courses#nutrition"
+    path: "/courses/nutrition"
   },
   {
     id: "barista",
     title: "Barista Training",
     image: "https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=500&auto=format&fit=crop",
     description: "Master the art of coffee preparation and service",
-    path: "/courses#barista"
+    path: "/courses/barista-training"
   }
 ];
 

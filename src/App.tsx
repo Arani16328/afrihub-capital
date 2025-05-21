@@ -14,6 +14,14 @@ import GalleryPage from "./pages/GalleryPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
+// Import individual course pages
+import BeautyHairdressing from "./pages/courses/BeautyHairdressing";
+import CateringHospitality from "./pages/courses/CateringHospitality";
+import BakingTechnology from "./pages/courses/BakingTechnology";
+import ICTFrontOffice from "./pages/courses/ICTFrontOffice";
+import Nutrition from "./pages/courses/Nutrition";
+import BaristaTraining from "./pages/courses/BaristaTraining";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -30,6 +38,15 @@ const App = () => (
           <Route path="/admissions" element={<AdmissionsPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          
+          {/* Individual course pages */}
+          <Route path="/courses/beauty-hairdressing" element={<BeautyHairdressing />} />
+          <Route path="/courses/catering-hospitality" element={<CateringHospitality />} />
+          <Route path="/courses/baking-technology" element={<BakingTechnology />} />
+          <Route path="/courses/ict-front-office" element={<ICTFrontOffice />} />
+          <Route path="/courses/nutrition" element={<Nutrition />} />
+          <Route path="/courses/barista-training" element={<BaristaTraining />} />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

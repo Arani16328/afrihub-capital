@@ -1,20 +1,47 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Phone, Mail, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScroll, setLastScroll] = useState(0);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      const isScrollingDown = currentScrollPos > lastScroll;
+      
+      // Only trigger hiding when scrolled past a certain point (100px)
+      if (currentScrollPos > 100) {
+        if (isScrollingDown && isVisible) {
+          setIsVisible(false);
+        } else if (!isScrollingDown && !isVisible) {
+          setIsVisible(true);
+        }
+      } else {
+        setIsVisible(true);
+      }
+      
+      setLastScroll(currentScrollPos);
+      setScrollPosition(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScroll, isVisible]);
+
   return (
-    <header className="bg-white shadow-sm">
+    <header className={`fixed w-full z-50 transition-transform duration-300 ${!isVisible ? '-translate-y-10' : 'translate-y-0'}`}>
       {/* Top Info Bar */}
-      <div className="bg-primary text-white py-2">
+      <div className={`bg-primary text-white py-2 transition-all duration-300 ${!isVisible ? 'opacity-0' : 'opacity-100'}`}>
         <div className="container-custom flex justify-between items-center">
           <div className="flex items-center space-x-4 text-sm">
             <div className="flex items-center space-x-1">
@@ -34,7 +61,7 @@ const Header = () => {
       </div>
 
       {/* Main Navigation */}
-      <div className="container-custom flex justify-between items-center py-4">
+      <div className={`container-custom flex justify-between items-center py-4 bg-white shadow-sm transition-all duration-300`}>
         <Link to="/" className="flex items-center space-x-2">
           <span className="text-2xl font-bold text-primary">KCBC</span>
         </Link>
