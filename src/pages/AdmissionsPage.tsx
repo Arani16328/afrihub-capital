@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,7 +22,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { toast } from "sonner";
 import { Check } from "lucide-react";
-import emailjs from 'emailjs-com';
+import { sendApplicationEmail } from "../utils/emailService";
 
 const formSchema = z.object({
   fullName: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -56,29 +55,7 @@ const AdmissionsPage = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     
-    // Initialize EmailJS with your service ID
-    emailjs.init("YOUR_PUBLIC_KEY");
-    
-    // Prepare email parameters for EmailJS
-    const templateParams = {
-      to_email: "isaacogero3@gmail.com",
-      from_name: values.fullName,
-      from_email: values.email,
-      subject: `New Application: ${values.program} Program`,
-      message: `
-        Full Name: ${values.fullName}
-        ID/Birth Certificate: ${values.idNumber}
-        Email: ${values.email}
-        Phone: ${values.phone}
-        Program: ${values.program}
-        Campus: ${values.campus}
-        Education: ${values.education}
-        Additional Information: ${values.message || "None provided"}
-      `,
-    };
-
-    // Send email using EmailJS
-    emailjs.send("default_service", "template_default", templateParams)
+    sendApplicationEmail(values)
       .then(() => {
         toast.success("Application submitted successfully! We'll contact you soon.");
         form.reset();

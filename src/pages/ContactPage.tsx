@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import emailjs from 'emailjs-com';
+import { sendContactEmail } from "../utils/emailService";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -25,20 +25,7 @@ const ContactPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Initialize EmailJS with your service ID
-    emailjs.init("YOUR_PUBLIC_KEY");
-    
-    // Prepare email parameters for EmailJS
-    const templateParams = {
-      to_email: "isaacogero3@gmail.com",
-      from_name: formData.name,
-      from_email: formData.email,
-      subject: formData.subject,
-      message: formData.message,
-    };
-
-    // Send email using EmailJS
-    emailjs.send("default_service", "template_default", templateParams)
+    sendContactEmail(formData)
       .then(() => {
         toast.success("Your message has been sent! We'll get back to you soon.");
         setFormData({

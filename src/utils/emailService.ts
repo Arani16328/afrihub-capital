@@ -3,8 +3,8 @@ import emailjs from 'emailjs-com';
 
 // Initialize EmailJS
 export const initEmailJS = () => {
-  // Replace with your EmailJS User ID from your EmailJS dashboard
-  emailjs.init("YOUR_PUBLIC_KEY");
+  // Initialize with your EmailJS User ID
+  emailjs.init("qi2jESWU3B2JU26K8");
 };
 
 // Function to send general contact form emails
