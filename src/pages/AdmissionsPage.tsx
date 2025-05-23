@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -22,7 +22,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { toast } from "sonner";
 import { Check } from "lucide-react";
-import { sendApplicationEmail } from "../utils/emailService";
+import { sendApplicationEmail, initEmailJS } from "../utils/emailService";
 
 const formSchema = z.object({
   fullName: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -37,6 +37,11 @@ const formSchema = z.object({
 
 const AdmissionsPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Initialize EmailJS once when component mounts
+  useEffect(() => {
+    initEmailJS();
+  }, []);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -54,14 +59,16 @@ const AdmissionsPage = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
+    console.log("Submitting application form with values:", values);
     
     sendApplicationEmail(values)
-      .then(() => {
+      .then((response) => {
+        console.log("Success response:", response);
         toast.success("Application submitted successfully! We'll contact you soon.");
         form.reset();
       })
       .catch((error) => {
-        console.error("Email sending error:", error);
+        console.error("Email sending error details:", error);
         toast.error("Failed to submit application. Please try again later.");
       })
       .finally(() => {

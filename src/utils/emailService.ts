@@ -14,6 +14,9 @@ export const sendContactEmail = async (contactData: {
   subject: string;
   message: string;
 }) => {
+  // Make sure EmailJS is initialized
+  initEmailJS();
+  
   const templateParams = {
     to_email: "isaacogero3@gmail.com",
     from_name: contactData.name,
@@ -22,11 +25,25 @@ export const sendContactEmail = async (contactData: {
     message: contactData.message,
   };
 
-  return emailjs.send("default_service", "template_default", templateParams);
+  try {
+    const response = await emailjs.send(
+      "service_e69zhbh",  // Use your actual service ID
+      "template_l6l442z", // Use your actual template ID
+      templateParams
+    );
+    console.log("Email sent successfully:", response);
+    return response;
+  } catch (error) {
+    console.error("Email sending error:", error);
+    throw error;
+  }
 };
 
 // Function to send application form emails
 export const sendApplicationEmail = async (applicationData: any) => {
+  // Make sure EmailJS is initialized
+  initEmailJS();
+  
   const templateParams = {
     to_email: "isaacogero3@gmail.com",
     from_name: applicationData.fullName,
@@ -44,5 +61,16 @@ export const sendApplicationEmail = async (applicationData: any) => {
     `,
   };
 
-  return emailjs.send("default_service", "template_default", templateParams);
+  try {
+    const response = await emailjs.send(
+      "service_e69zhbh",  // Use your actual service ID
+      "template_l6l442z", // Use your actual template ID
+      templateParams
+    );
+    console.log("Application email sent successfully:", response);
+    return response;
+  } catch (error) {
+    console.error("Application email sending error:", error);
+    throw error;
+  }
 };

@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MapPin, Phone, Mail, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { sendContactEmail } from "../utils/emailService";
+import { sendContactEmail, initEmailJS } from "../utils/emailService";
 
 const ContactPage = () => {
+  // Initialize EmailJS once when component mounts
+  useEffect(() => {
+    initEmailJS();
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,7 +31,8 @@ const ContactPage = () => {
     setIsSubmitting(true);
     
     sendContactEmail(formData)
-      .then(() => {
+      .then((response) => {
+        console.log("Success response:", response);
         toast.success("Your message has been sent! We'll get back to you soon.");
         setFormData({
           name: "",
@@ -36,7 +42,7 @@ const ContactPage = () => {
         });
       })
       .catch((error) => {
-        console.error("Email sending error:", error);
+        console.error("Email sending error details:", error);
         toast.error("Failed to send message. Please try again later.");
       })
       .finally(() => {
