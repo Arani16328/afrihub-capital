@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { MapPin, Phone, Mail, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import emailjs from 'emailjs-com';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -25,18 +25,36 @@ const ContactPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      console.log("Form submitted:", formData);
-      toast.success("Your message has been sent! We'll get back to you soon.");
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: ""
+    // Initialize EmailJS with your service ID
+    emailjs.init("YOUR_PUBLIC_KEY");
+    
+    // Prepare email parameters for EmailJS
+    const templateParams = {
+      to_email: "isaacogero3@gmail.com",
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    };
+
+    // Send email using EmailJS
+    emailjs.send("default_service", "template_default", templateParams)
+      .then(() => {
+        toast.success("Your message has been sent! We'll get back to you soon.");
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: ""
+        });
+      })
+      .catch((error) => {
+        console.error("Email sending error:", error);
+        toast.error("Failed to send message. Please try again later.");
+      })
+      .finally(() => {
+        setIsSubmitting(false);
       });
-      setIsSubmitting(false);
-    }, 1000);
   };
 
   const campuses = [
