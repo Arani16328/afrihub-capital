@@ -14,8 +14,6 @@ import GalleryPage from "./pages/GalleryPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
-import { useEffect } from "react";
-import { initEmailJS } from "./utils/emailService";
 
 // Import individual course pages
 import BeautyHairdressing from "./pages/courses/BeautyHairdressing";
@@ -28,11 +26,6 @@ import BaristaTraining from "./pages/courses/BaristaTraining";
 const queryClient = new QueryClient();
 
 const App = () => {
-  // Initialize EmailJS when app loads
-  useEffect(() => {
-    initEmailJS();
-  }, []);
-
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>

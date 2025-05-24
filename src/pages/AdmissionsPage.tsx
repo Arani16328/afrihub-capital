@@ -1,79 +1,19 @@
-import { useState, useEffect } from "react";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
+import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { Check } from "lucide-react";
-import { sendApplicationEmail, initEmailJS } from "../utils/emailService";
-
-const formSchema = z.object({
-  fullName: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  idNumber: z.string().min(1, { message: "ID or Birth Certificate number is required." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  phone: z.string().min(10, { message: "Please enter a valid phone number." }),
-  program: z.string().min(1, { message: "Please select a program." }),
-  campus: z.string().min(1, { message: "Please select a campus." }),
-  education: z.string().min(1, { message: "Please select your education level." }),
-  message: z.string().optional(),
-});
 
 const AdmissionsPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Initialize EmailJS once when component mounts
-  useEffect(() => {
-    initEmailJS();
-  }, []);
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      fullName: "",
-      idNumber: "",
-      email: "",
-      phone: "",
-      program: "",
-      campus: "",
-      education: "",
-      message: "",
-    },
-  });
-
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     setIsSubmitting(true);
-    console.log("Submitting application form with values:", values);
-    
-    sendApplicationEmail(values)
-      .then((response) => {
-        console.log("Success response:", response);
-        toast.success("Application submitted successfully! We'll contact you soon.");
-        form.reset();
-      })
-      .catch((error) => {
-        console.error("Email sending error details:", error);
-        toast.error("Failed to submit application. Please try again later.");
-      })
-      .finally(() => {
-        setIsSubmitting(false);
-      });
+    toast.success("Application submitted successfully! We'll contact you soon.");
+    // FormSubmit will handle the actual submission
   };
 
   const benefits = [
@@ -301,167 +241,132 @@ const AdmissionsPage = () => {
           </div>
           
           <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md">
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
+            <form 
+              action="https://formsubmit.co/isaacogero3@gmail.com" 
+              method="POST" 
+              onSubmit={handleSubmit} 
+              className="space-y-6"
+            >
+              {/* FormSubmit configuration fields */}
+              <input type="hidden" name="_subject" value="New Application Form Submission - Kasarani College" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <Label htmlFor="fullName">Full Name</Label>
+                  <Input
+                    id="fullName"
                     name="fullName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Full Name</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Enter your full name" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                    placeholder="Enter your full name"
+                    required
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
                   />
-                  
-                  <FormField
-                    control={form.control}
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="idNumber">ID / Birth Certificate No.</Label>
+                  <Input
+                    id="idNumber"
                     name="idNumber"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>ID / Birth Certificate No.</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Enter your ID or Birth Certificate number" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email Address</FormLabel>
-                        <FormControl>
-                          <Input type="email" placeholder="Enter your email" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Phone Number</FormLabel>
-                        <FormControl>
-                          <Input placeholder="e.g. 0712345678" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="program"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Program of Interest</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select a program" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="cosmetology">Diploma in Cosmetology</SelectItem>
-                            <SelectItem value="hairdressing">Diploma in Hairdressing</SelectItem>
-                            <SelectItem value="catering">Diploma in Catering & Accommodation</SelectItem>
-                            <SelectItem value="baking">Basic Baking</SelectItem>
-                            <SelectItem value="ict">ICT Certificate</SelectItem>
-                            <SelectItem value="nutrition">Diploma in Nutrition</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="campus"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Preferred Campus</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select a campus" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="nairobi">Githurai 45, Nairobi</SelectItem>
-                            <SelectItem value="machakos">ACK Cathedral, Machakos</SelectItem>
-                            <SelectItem value="kitui">Kitui Campus</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="education"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Education Level</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select your education level" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="kcpe">KCPE</SelectItem>
-                            <SelectItem value="kcse">KCSE</SelectItem>
-                            <SelectItem value="diploma">Diploma</SelectItem>
-                            <SelectItem value="degree">Degree</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+                    placeholder="Enter your ID or Birth Certificate number"
+                    required
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
                   />
                 </div>
 
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Additional Information (Optional)</FormLabel>
-                      <FormControl>
-                        <Textarea 
-                          placeholder="Tell us anything else that might be relevant to your application"
-                          className="min-h-[120px]"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    required
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                  />
+                </div>
 
-                <Button 
-                  type="submit" 
-                  className="w-full bg-primary hover:bg-primary-hover text-white"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Processing..." : "Submit Application"}
-                </Button>
-              </form>
-            </Form>
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone Number</Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    placeholder="e.g. 0712345678"
+                    required
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="program">Program of Interest</Label>
+                  <select
+                    id="program"
+                    name="program"
+                    required
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                  >
+                    <option value="">Select a program</option>
+                    <option value="cosmetology">Diploma in Cosmetology</option>
+                    <option value="hairdressing">Diploma in Hairdressing</option>
+                    <option value="catering">Diploma in Catering & Accommodation</option>
+                    <option value="baking">Basic Baking</option>
+                    <option value="ict">ICT Certificate</option>
+                    <option value="nutrition">Diploma in Nutrition</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="campus">Preferred Campus</Label>
+                  <select
+                    id="campus"
+                    name="campus"
+                    required
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                  >
+                    <option value="">Select a campus</option>
+                    <option value="nairobi">Githurai 45, Nairobi</option>
+                    <option value="machakos">ACK Cathedral, Machakos</option>
+                    <option value="kitui">Kitui Campus</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2 md:col-span-2">
+                  <Label htmlFor="education">Education Level</Label>
+                  <select
+                    id="education"
+                    name="education"
+                    required
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                  >
+                    <option value="">Select your education level</option>
+                    <option value="kcpe">KCPE</option>
+                    <option value="kcse">KCSE</option>
+                    <option value="diploma">Diploma</option>
+                    <option value="degree">Degree</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="message">Additional Information (Optional)</Label>
+                <Textarea 
+                  id="message"
+                  name="message"
+                  placeholder="Tell us anything else that might be relevant to your application"
+                  className="min-h-[120px] flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                />
+              </div>
+
+              <Button 
+                type="submit" 
+                className="w-full bg-primary hover:bg-primary-hover text-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Processing..." : "Submit Application"}
+              </Button>
+            </form>
           </div>
         </div>
       </section>

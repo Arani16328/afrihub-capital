@@ -1,53 +1,19 @@
-import React, { useState, useEffect } from "react";
+
+import React, { useState } from "react";
 import { MapPin, Phone, Mail, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { sendContactEmail, initEmailJS } from "../utils/emailService";
 
 const ContactPage = () => {
-  // Initialize EmailJS once when component mounts
-  useEffect(() => {
-    initEmailJS();
-  }, []);
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
     setIsSubmitting(true);
-    
-    sendContactEmail(formData)
-      .then((response) => {
-        console.log("Success response:", response);
-        toast.success("Your message has been sent! We'll get back to you soon.");
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: ""
-        });
-      })
-      .catch((error) => {
-        console.error("Email sending error details:", error);
-        toast.error("Failed to send message. Please try again later.");
-      })
-      .finally(() => {
-        setIsSubmitting(false);
-      });
+    toast.success("Your message is being sent! We'll get back to you soon.");
+    // FormSubmit will handle the actual submission
   };
 
   const campuses = [
@@ -141,16 +107,25 @@ const ContactPage = () => {
                 Get in Touch
               </h2>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form 
+                action="https://formsubmit.co/isaacogero3@gmail.com" 
+                method="POST" 
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+              >
+                {/* FormSubmit configuration fields */}
+                <input type="hidden" name="_subject" value="New Contact Form Submission - Kasarani College" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                
                 <div>
                   <Label htmlFor="name">Your Name</Label>
                   <Input
                     id="name"
                     name="name"
                     placeholder="Enter your name"
-                    value={formData.name}
-                    onChange={handleChange}
                     required
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
                   />
                 </div>
                 
@@ -161,9 +136,8 @@ const ContactPage = () => {
                     name="email"
                     type="email"
                     placeholder="Enter your email"
-                    value={formData.email}
-                    onChange={handleChange}
                     required
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
                   />
                 </div>
                 
@@ -173,9 +147,8 @@ const ContactPage = () => {
                     id="subject"
                     name="subject"
                     placeholder="What is this regarding?"
-                    value={formData.subject}
-                    onChange={handleChange}
                     required
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
                   />
                 </div>
                 
@@ -186,15 +159,14 @@ const ContactPage = () => {
                     name="message"
                     placeholder="How can we help you?"
                     rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
                     required
+                    className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   />
                 </div>
                 
                 <Button 
                   type="submit" 
-                  className="w-full bg-primary hover:bg-primary-hover text-white"
+                  className="w-full bg-primary hover:bg-primary-hover text-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
