@@ -47,8 +47,8 @@ const Header = () => {
                 {link.name}
               </Link>
             ))}
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-              Login
+            <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white">
+              <Link to="/contact">Contact Us</Link>
             </Button>
           </nav>
 
@@ -79,8 +79,8 @@ const Header = () => {
                   {link.name}
                 </Link>
               ))}
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white w-fit">
-                Login
+              <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white w-fit">
+                <Link to="/contact">Contact Us</Link>
               </Button>
             </nav>
           </div>
