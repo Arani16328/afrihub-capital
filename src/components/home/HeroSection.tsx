@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const slideImages = [
-  "https://images.unsplash.com/photo-1607083206968-13611e3d76db?q=80&w=1800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1590227632180-80a3bf110871?q=80&w=1800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=1800&auto=format&fit=crop"
+  "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=1800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1800&auto=format&fit=crop"
 ];
 
 const HeroSection = () => {
@@ -53,21 +53,21 @@ const HeroSection = () => {
         <div className="container-custom z-10">
           <div className="max-w-2xl text-white">
             <h5 className="bg-accent text-black inline-block px-3 py-1 rounded text-sm font-medium mb-4">
-              ONLINE E-LEARNING COURSES
+              EMPOWERING AFRICAN ENTREPRENEURS
             </h5>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Welcome to Kasarani Catering & Beauty College
+              Transform Your Ideas Into Impactful Businesses
             </h1>
             <p className="text-lg md:text-xl mb-8">
-              Empowering Skills • Building Futures • Changing Lives
+              From Seed Funding to Market Success • Building Africa's Future • One Entrepreneur at a Time
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/courses">
+              <Link to="/program">
                 <Button className="bg-primary hover:bg-primary-hover text-white">
-                  View Courses
+                  Explore Program
                 </Button>
               </Link>
-              <Link to="/admissions">
+              <Link to="/apply">
                 <Button className="bg-white text-primary hover:bg-gray-100">
                   Apply Now
                 </Button>

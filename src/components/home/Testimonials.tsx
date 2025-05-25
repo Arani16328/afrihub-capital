@@ -5,23 +5,23 @@ import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    quote: "I joined KCBC for cosmetology and now I run my own salon in Nairobi. The hands-on training gave me confidence to start my business.",
-    name: "Grace M.",
-    role: "Salon Owner",
+    quote: "AfriHub Capital transformed my agricultural tech idea into a thriving business. The mentorship and funding were game-changers for my startup.",
+    name: "Amara K.",
+    role: "CEO, AgriTech Solutions",
     avatar: "https://randomuser.me/api/portraits/women/79.jpg"
   },
   {
     id: 2,
-    quote: "The hospitality diploma gave me a head start in my hotel career. I now work at a 5-star hotel thanks to the practical skills I gained.",
-    name: "John M.",
-    role: "Hotel Manager",
+    quote: "The 6-month incubation program gave me the tools and network I needed to scale my fintech startup across three African countries.",
+    name: "Kwame M.",
+    role: "Founder, PayConnect",
     avatar: "https://randomuser.me/api/portraits/men/32.jpg"
   },
   {
     id: 3,
-    quote: "The baking technology course transformed my hobby into a profitable business. The instructors were supportive and knowledgeable.",
-    name: "Sarah K.",
-    role: "Bakery Owner",
+    quote: "From idea validation to Series A funding, AfriHub Capital has been with us every step of the way. Now we're impacting millions of lives.",
+    name: "Fatima N.",
+    role: "Co-founder, HealthTech Africa",
     avatar: "https://randomuser.me/api/portraits/women/44.jpg"
   }
 ];
@@ -41,9 +41,9 @@ const Testimonials = () => {
     <section className="py-16 bg-primary/5">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">What Our Students Say</h2>
+          <h2 className="text-3xl font-bold mb-4">Success Stories</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Hear from our graduates who have transformed their lives through our programs
+            Hear from entrepreneurs who have transformed their lives and communities through our programs
           </p>
         </div>
 
