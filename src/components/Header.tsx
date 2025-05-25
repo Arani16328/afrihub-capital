@@ -1,164 +1,93 @@
 
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Mail, Clock } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScroll, setLastScroll] = useState(0);
   const location = useLocation();
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Program", path: "/program" },
+    { name: "Funding", path: "/funding" },
+    { name: "Success Stories", path: "/success-stories" },
+    { name: "Apply", path: "/apply" },
+    { name: "Contact", path: "/contact" },
+  ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
-      const isScrollingDown = currentScrollPos > lastScroll;
-      
-      // Only trigger hiding when scrolled past a certain point (100px)
-      if (currentScrollPos > 100) {
-        if (isScrollingDown && isVisible) {
-          setIsVisible(false);
-        } else if (!isScrollingDown && !isVisible) {
-          setIsVisible(true);
-        }
-      } else {
-        setIsVisible(true);
-      }
-      
-      setLastScroll(currentScrollPos);
-      setScrollPosition(currentScrollPos);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScroll, isVisible]);
+  const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className={`fixed w-full z-50 transition-transform duration-300 ${!isVisible ? '-translate-y-10' : 'translate-y-0'}`}>
-      {/* Top Info Bar */}
-      <div className={`bg-primary text-white py-2 transition-all duration-300 ${!isVisible ? 'opacity-0' : 'opacity-100'}`}>
-        <div className="container-custom flex justify-between items-center">
-          <div className="flex items-center space-x-4 text-sm">
-            <div className="flex items-center space-x-1">
-              <Phone size={14} />
-              <span>0721 429 839 / 0751 211 902</span>
+    <header className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">AH</span>
             </div>
-            <div className="hidden md:flex items-center space-x-1">
-              <Mail size={14} />
-              <span>info@kasaranicollege.ac.ke</span>
-            </div>
-          </div>
-          <div className="flex items-center space-x-1">
-            <Clock size={14} />
-            <span className="text-sm">Mon - Sat: 8:00 - 17:00</span>
-          </div>
-        </div>
-      </div>
+            <span className="text-xl font-bold text-gray-900">AfriHub Capital</span>
+          </Link>
 
-      {/* Main Navigation */}
-      <div className={`container-custom flex justify-between items-center py-4 bg-white shadow-sm transition-all duration-300`}>
-        <Link to="/" className="flex items-center space-x-2">
-          <span className="text-2xl font-bold text-primary">KCBC</span>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6">
-          <NavLink to="/" isActive={location.pathname === "/"}>Home</NavLink>
-          <NavLink to="/about" isActive={location.pathname === "/about"}>About</NavLink>
-          <NavLink to="/courses" isActive={location.pathname === "/courses"}>Courses</NavLink>
-          <NavLink to="/admissions" isActive={location.pathname === "/admissions"}>Admissions</NavLink>
-          <NavLink to="/gallery" isActive={location.pathname === "/gallery"}>Gallery</NavLink>
-          <NavLink to="/contact" isActive={location.pathname === "/contact"}>Contact</NavLink>
-        </nav>
-
-        <div className="hidden md:block">
-          <Button className="bg-primary hover:bg-primary-hover text-white">Apply Now</Button>
-        </div>
-
-        {/* Mobile menu button */}
-        <button 
-          onClick={toggleMenu}
-          className="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none"
-        >
-          <Menu size={24} />
-        </button>
-      </div>
-
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50 bg-white">
-          <div className="container-custom py-4 flex justify-between items-center">
-            <Link to="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold text-primary">KCBC</span>
-            </Link>
-            <button 
-              onClick={toggleMenu}
-              className="text-gray-600 hover:text-gray-900 focus:outline-none"
-            >
-              <X size={24} />
-            </button>
-          </div>
-          <nav className="container-custom flex flex-col space-y-4 py-8">
-            <MobileNavLink to="/" onClick={toggleMenu} isActive={location.pathname === "/"}>Home</MobileNavLink>
-            <MobileNavLink to="/about" onClick={toggleMenu} isActive={location.pathname === "/about"}>About</MobileNavLink>
-            <MobileNavLink to="/courses" onClick={toggleMenu} isActive={location.pathname === "/courses"}>Courses</MobileNavLink>
-            <MobileNavLink to="/admissions" onClick={toggleMenu} isActive={location.pathname === "/admissions"}>Admissions</MobileNavLink>
-            <MobileNavLink to="/gallery" onClick={toggleMenu} isActive={location.pathname === "/gallery"}>Gallery</MobileNavLink>
-            <MobileNavLink to="/contact" onClick={toggleMenu} isActive={location.pathname === "/contact"}>Contact</MobileNavLink>
-            <div className="pt-4">
-              <Button className="w-full bg-primary hover:bg-primary-hover text-white">Apply Now</Button>
-            </div>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  isActive(link.path)
+                    ? "text-blue-600 border-b-2 border-blue-600"
+                    : "text-gray-700 hover:text-blue-600"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+              Login
+            </Button>
           </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-      )}
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden py-4 border-t border-gray-200">
+            <nav className="flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`text-sm font-medium transition-colors duration-200 ${
+                    isActive(link.path)
+                      ? "text-blue-600"
+                      : "text-gray-700 hover:text-blue-600"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white w-fit">
+                Login
+              </Button>
+            </nav>
+          </div>
+        )}
+      </div>
     </header>
   );
 };
-
-const NavLink = ({ 
-  to, 
-  children,
-  isActive
-}: { 
-  to: string; 
-  children: React.ReactNode;
-  isActive: boolean;
-}) => (
-  <Link 
-    to={to} 
-    className={`relative transition-colors duration-300 hover:text-primary ${
-      isActive ? 'text-primary' : 'text-gray-700'
-    } after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-primary after:bottom-0 after:left-0 
-    ${isActive ? 'after:scale-x-100' : 'after:scale-x-0'} after:transition-transform after:duration-300 hover:after:scale-x-100 after:origin-bottom-left`}
-  >
-    {children}
-  </Link>
-);
-
-const MobileNavLink = ({ 
-  to, 
-  children, 
-  onClick,
-  isActive
-}: { 
-  to: string; 
-  children: React.ReactNode;
-  onClick: () => void;
-  isActive: boolean;
-}) => (
-  <Link 
-    to={to} 
-    className={`text-xl font-medium py-2 ${isActive ? 'text-primary' : 'text-gray-800'} hover:text-primary`}
-    onClick={onClick}
-  >
-    {children}
-  </Link>
-);
 
 export default Header;

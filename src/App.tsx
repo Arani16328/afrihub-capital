@@ -8,20 +8,13 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
-import CoursesPage from "./pages/CoursesPage";
-import AdmissionsPage from "./pages/AdmissionsPage";
-import GalleryPage from "./pages/GalleryPage";
+import IncubationPage from "./pages/IncubationPage";
+import FundingPage from "./pages/FundingPage";
+import SuccessStoriesPage from "./pages/SuccessStoriesPage";
+import ApplyPage from "./pages/ApplyPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
-
-// Import individual course pages
-import BeautyHairdressing from "./pages/courses/BeautyHairdressing";
-import CateringHospitality from "./pages/courses/CateringHospitality";
-import BakingTechnology from "./pages/courses/BakingTechnology";
-import ICTFrontOffice from "./pages/courses/ICTFrontOffice";
-import Nutrition from "./pages/courses/Nutrition";
-import BaristaTraining from "./pages/courses/BaristaTraining";
 
 const queryClient = new QueryClient();
 
@@ -36,18 +29,11 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/courses" element={<CoursesPage />} />
-            <Route path="/admissions" element={<AdmissionsPage />} />
-            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/program" element={<IncubationPage />} />
+            <Route path="/funding" element={<FundingPage />} />
+            <Route path="/success-stories" element={<SuccessStoriesPage />} />
+            <Route path="/apply" element={<ApplyPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            
-            {/* Individual course pages */}
-            <Route path="/courses/beauty-hairdressing" element={<BeautyHairdressing />} />
-            <Route path="/courses/catering-hospitality" element={<CateringHospitality />} />
-            <Route path="/courses/baking-technology" element={<BakingTechnology />} />
-            <Route path="/courses/ict-front-office" element={<ICTFrontOffice />} />
-            <Route path="/courses/nutrition" element={<Nutrition />} />
-            <Route path="/courses/barista-training" element={<BaristaTraining />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { MapPin, Phone, Mail, MessageSquare } from "lucide-react";
+import { MapPin, Phone, Mail, MessageSquare, Clock, Building } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,221 +12,339 @@ const ContactPage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     setIsSubmitting(true);
-    toast.success("Your message is being sent! We'll get back to you soon.");
+    toast.success("Your message has been sent! We'll get back to you within 24 hours.");
     // FormSubmit will handle the actual submission
   };
 
-  const campuses = [
+  const contactInfo = [
     {
-      location: "Githurai 45, Nairobi",
-      address: "Near Equity Bank, Githurai 45",
-      phone: "0721 429 839",
-      email: "nairobi@kasaranicollege.ac.ke"
+      title: "Email",
+      value: "afrihubcapitalltd@gmail.com",
+      icon: Mail,
+      link: "mailto:afrihubcapitalltd@gmail.com"
     },
     {
-      location: "ACK Cathedral, Machakos",
-      address: "Within ACK Cathedral grounds, Machakos",
-      phone: "0751 211 902",
-      email: "machakos@kasaranicollege.ac.ke"
+      title: "Phone",
+      value: "+254 710 235 750",
+      icon: Phone,
+      link: "tel:+254710235750"
     },
     {
-      location: "Kitui Campus",
-      address: "Opposite Parkside Villa, Kitui Town",
-      phone: "0721 429 839",
-      email: "kitui@kasaranicollege.ac.ke"
+      title: "WhatsApp",
+      value: "+254 710 235 750",
+      icon: MessageSquare,
+      link: "https://wa.me/254710235750"
     }
   ];
 
+  const officeHours = [
+    { day: "Monday - Friday", hours: "9:00 AM - 6:00 PM EAT" },
+    { day: "Saturday", hours: "10:00 AM - 2:00 PM EAT" },
+    { day: "Sunday", hours: "Closed" }
+  ];
+
   return (
-    <main>
+    <main className="pt-16">
       {/* Hero Section */}
-      <section className="bg-primary/10 py-16">
-        <div className="container-custom">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
-            <p className="text-xl text-gray-700">
-              We're here to help! Reach out to us with any questions about our programs.
+      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
+            <p className="text-xl mb-8">
+              Ready to start your entrepreneurial journey? Get in touch with our team 
+              and let's discuss how AfriHub Capital can help transform your startup idea into reality.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Information */}
+      {/* Contact Information Cards */}
       <section className="py-16">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {campuses.map((campus, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md flex flex-col">
-                <h3 className="text-xl font-semibold mb-4">{campus.location}</h3>
-                
-                <div className="flex items-start mb-4">
-                  <MapPin className="h-5 w-5 text-primary mr-3 flex-shrink-0 mt-1" />
-                  <span>{campus.address}</span>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {contactInfo.map((info, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
+                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <info.icon className="h-8 w-8 text-blue-600" />
                 </div>
-                
-                <div className="flex items-center mb-4">
-                  <Phone className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                  <a href={`tel:${campus.phone}`} className="hover:text-primary transition-colors">
-                    {campus.phone}
-                  </a>
-                </div>
-                
-                <div className="flex items-center">
-                  <Mail className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                  <a href={`mailto:${campus.email}`} className="hover:text-primary transition-colors break-words">
-                    {campus.email}
-                  </a>
-                </div>
+                <h3 className="text-xl font-bold mb-2">{info.title}</h3>
+                <a 
+                  href={info.link}
+                  className="text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                >
+                  {info.value}
+                </a>
               </div>
             ))}
+          </div>
+
+          {/* Office Hours */}
+          <div className="max-w-md mx-auto bg-gray-50 p-6 rounded-lg mb-16">
+            <div className="flex items-center justify-center mb-4">
+              <Clock className="h-6 w-6 text-blue-600 mr-2" />
+              <h3 className="text-xl font-bold">Office Hours</h3>
+            </div>
+            <div className="space-y-2">
+              {officeHours.map((schedule, index) => (
+                <div key={index} className="flex justify-between">
+                  <span className="font-medium">{schedule.day}</span>
+                  <span className="text-gray-600">{schedule.hours}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Map and Form Section */}
+      {/* Contact Form & Map Section */}
       <section className="py-16 bg-gray-50">
-        <div className="container-custom">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Google Map */}
-            <div className="rounded-lg overflow-hidden shadow-lg">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7838023877545!2d36.8957532!3d-1.3021389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f15a83ea35625%3A0x57ebcbea2c94eb6c!2sGithurai%2045%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1589859494932!5m2!1sen!2ske"
-                width="100%"
-                height="450"
-                style={{ border: 0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                title="Campus Location"
-              ></iframe>
-            </div>
-
             {/* Contact Form */}
             <div className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-2xl font-semibold mb-6 flex items-center">
-                <MessageSquare className="h-6 w-6 mr-3 text-primary" />
-                Get in Touch
+                <MessageSquare className="h-6 w-6 mr-3 text-blue-600" />
+                Send Us a Message
               </h2>
               
               <form 
-                action="https://formsubmit.co/isaacogero3@gmail.com" 
+                action="https://formsubmit.co/afrihubcapitalltd@gmail.com" 
                 method="POST" 
                 onSubmit={handleSubmit} 
                 className="space-y-6"
               >
                 {/* FormSubmit configuration fields */}
-                <input type="hidden" name="_subject" value="New Contact Form Submission - Kasarani College" />
+                <input type="hidden" name="_subject" value="New Contact Form Submission - AfriHub Capital" />
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
                 
-                <div>
-                  <Label htmlFor="name">Your Name</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    placeholder="Enter your name"
-                    required
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <Label htmlFor="firstName">First Name *</Label>
+                    <Input
+                      id="firstName"
+                      name="firstName"
+                      placeholder="Enter your first name"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="lastName">Last Name *</Label>
+                    <Input
+                      id="lastName"
+                      name="lastName"
+                      placeholder="Enter your last name"
+                      required
+                    />
+                  </div>
                 </div>
                 
                 <div>
-                  <Label htmlFor="email">Email Address</Label>
+                  <Label htmlFor="email">Email Address *</Label>
                   <Input
                     id="email"
                     name="email"
                     type="email"
                     placeholder="Enter your email"
                     required
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
                   />
                 </div>
                 
                 <div>
-                  <Label htmlFor="subject">Subject</Label>
+                  <Label htmlFor="phone">Phone Number</Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    placeholder="e.g. +254712345678"
+                  />
+                </div>
+                
+                <div>
+                  <Label htmlFor="inquiryType">Type of Inquiry *</Label>
+                  <select
+                    id="inquiryType"
+                    name="inquiryType"
+                    required
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    <option value="">Select inquiry type</option>
+                    <option value="startup-application">Startup Application</option>
+                    <option value="investor-partnership">Investor Partnership</option>
+                    <option value="media-press">Media & Press</option>
+                    <option value="general-inquiry">General Inquiry</option>
+                    <option value="technical-support">Technical Support</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <Label htmlFor="subject">Subject *</Label>
                   <Input
                     id="subject"
                     name="subject"
-                    placeholder="What is this regarding?"
+                    placeholder="Brief subject of your message"
                     required
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
                   />
                 </div>
                 
                 <div>
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message">Message *</Label>
                   <Textarea
                     id="message"
                     name="message"
-                    placeholder="How can we help you?"
+                    placeholder="Tell us how we can help you..."
                     rows={5}
                     required
-                    className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   />
                 </div>
                 
                 <Button 
                   type="submit" 
-                  className="w-full bg-primary hover:bg-primary-hover text-white inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-10 px-4 py-2"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </div>
+
+            {/* Map & Location Info */}
+            <div className="space-y-8">
+              {/* Map */}
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="p-6 border-b">
+                  <h3 className="text-xl font-bold flex items-center">
+                    <MapPin className="h-5 w-5 mr-2 text-blue-600" />
+                    Our Location
+                  </h3>
+                </div>
+                <div className="h-64 bg-gray-100 flex items-center justify-center">
+                  <div className="text-center text-gray-600">
+                    <Building className="h-12 w-12 mx-auto mb-2" />
+                    <p className="font-medium">Nairobi, Kenya</p>
+                    <p className="text-sm">Interactive map coming soon</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Office Information */}
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h3 className="text-xl font-bold mb-4">Visit Our Office</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <MapPin className="h-5 w-5 text-blue-600 mr-3 flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-medium">AfriHub Capital HQ</p>
+                      <p className="text-gray-600">Nairobi, Kenya</p>
+                      <p className="text-sm text-gray-500">
+                        Specific address will be provided upon scheduling a meeting
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-blue-800 mb-2">Schedule a Meeting</h4>
+                    <p className="text-blue-700 text-sm">
+                      We welcome in-person meetings with potential portfolio companies and partners. 
+                      Contact us to schedule an appointment.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Social Media and WhatsApp Section */}
+      {/* FAQ Section */}
       <section className="py-16">
-        <div className="container-custom text-center">
-          <h2 className="text-2xl font-semibold mb-8">Connect With Us</h2>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+            <p className="text-xl text-gray-600">
+              Quick answers to common questions about AfriHub Capital
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-lg font-bold mb-3">How long does the application process take?</h3>
+              <p className="text-gray-600">
+                Our application process typically takes 2-4 weeks from submission to final decision, 
+                including AI screening, expert review, and interviews.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-lg font-bold mb-3">What stage startups do you accept?</h3>
+              <p className="text-gray-600">
+                We accept startups from idea stage to early growth stage. The key is having 
+                a clear problem, solution, and committed founding team.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-lg font-bold mb-3">Do you invest outside Kenya?</h3>
+              <p className="text-gray-600">
+                Yes! We invest in startups across Africa, with a focus on East Africa. 
+                Remote participation in our program is possible for exceptional startups.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-lg font-bold mb-3">What do you look for in startups?</h3>
+              <p className="text-gray-600">
+                We look for scalable business models, strong founding teams, clear market need, 
+                and potential for significant impact in African markets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Social Media & Partnership CTA */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Connect</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Follow us on social media for the latest updates on our portfolio companies, 
+            startup insights, and ecosystem developments.
+          </p>
           
-          <div className="flex justify-center space-x-6 mb-12">
+          <div className="flex justify-center space-x-6 mb-8">
             <a 
-              href="https://facebook.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-[#1877F2] text-white p-4 rounded-full hover:opacity-90 transition-opacity"
+              href="#" 
+              className="bg-white/20 p-4 rounded-full hover:bg-white/30 transition-colors"
+              aria-label="LinkedIn"
             >
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z" />
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </svg>
             </a>
-            
             <a 
-              href="https://instagram.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-[#E4405F] text-white p-4 rounded-full hover:opacity-90 transition-opacity"
+              href="#" 
+              className="bg-white/20 p-4 rounded-full hover:bg-white/30 transition-colors"
+              aria-label="Twitter"
             >
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12,2.16c3.2,0,3.58,0,4.85.07,3.25.15,4.77,1.69,4.92,4.92.06,1.27.07,1.65.07,4.85s0,3.58-.07,4.85c-.15,3.23-1.66,4.77-4.92,4.92-1.27.06-1.64.07-4.85.07s-3.58,0-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s0-3.58.07-4.85C2.38,3.92,3.9,2.38,7.15,2.23,8.42,2.18,8.8,2.16,12,2.16ZM12,0C8.74,0,8.33,0,7.05.07c-4.35.2-6.78,2.62-7,7C0,8.33,0,8.74,0,12S0,15.67.07,17c.2,4.36,2.62,6.78,7,7C8.33,24,8.74,24,12,24s3.67,0,4.95-.07c4.35-.2,6.78-2.62,7-7C24,15.67,24,15.26,24,12s0-3.67-.07-4.95c-.2-4.35-2.62-6.78-7-7C15.67,0,15.26,0,12,0Zm0,5.84A6.16,6.16,0,1,0,18.16,12,6.16,6.16,0,0,0,12,5.84ZM12,16a4,4,0,1,1,4-4A4,4,0,0,1,12,16ZM18.41,4.15a1.44,1.44,0,1,0,1.43,1.44A1.44,1.44,0,0,0,18.41,4.15Z" />
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
               </svg>
             </a>
-            
             <a 
-              href="https://twitter.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-[#1DA1F2] text-white p-4 rounded-full hover:opacity-90 transition-opacity"
+              href="#" 
+              className="bg-white/20 p-4 rounded-full hover:bg-white/30 transition-colors"
+              aria-label="Instagram"
             >
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M23.32,6.44a.5.5,0,0,0-.2-.87l-.79-.19A.49.49,0,0,1,22,4.89L21.74,4a.5.5,0,0,0-.58-.29l-1.35.44a.5.5,0,0,1-.44-.07,5.8,5.8,0,0,0-3.34-1.08C13.67,3,11.39,6,12.08,8.83A11.42,11.42,0,0,1,4.93,5.26a.5.5,0,0,0-.85.31,6,6,0,0,0,.45,5.24.5.5,0,0,1-.36.75L3,11.71a.5.5,0,0,0-.38.73A7.34,7.34,0,0,0,3.9,14.2a.5.5,0,0,1-.13.73l-.87.49a.5.5,0,0,0-.12.75,5.71,5.71,0,0,0,3.38,1.77.5.5,0,0,1,.32.18,11.49,11.49,0,0,1-5.47,2.63.5.5,0,0,0-.2.93,15.52,15.52,0,0,0,19.85-8.13,14.14,14.14,0,0,0,.64-3.4.5.5,0,0,1,.83-.36l1.2,1a.5.5,0,0,0,.8-.33Z" />
+                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.748-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
               </svg>
             </a>
           </div>
           
-          <div className="bg-[#25D366] text-white max-w-md mx-auto py-4 px-6 rounded-lg shadow-lg flex items-center justify-center space-x-4">
-            <svg className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M17.6,6.32C16.27,4.99,14.46,4.25,12.53,4.25c-3.91,0-7.09,3.19-7.09,7.1c0,1.25,0.33,2.47,0.94,3.54L5.25,19.75l4.98-1.3c1.03,0.56,2.2,0.86,3.38,0.86c3.91,0,7.09-3.19,7.09-7.1C20.75,9.55,20.01,7.74,17.6,6.32 M12.53,18.06c-1.06,0-2.1-0.28-3-0.82l-0.21-0.13l-2.24,0.59l0.6-2.19l-0.14-0.22c-0.59-0.94-0.91-2.03-0.91-3.14c0-3.25,2.65-5.9,5.9-5.9c1.57,0,3.05,0.61,4.17,1.73c1.12,1.12,1.73,2.6,1.73,4.17C18.43,15.42,15.78,18.06,12.53,18.06 M16.13,13.58c-0.17-0.09-1.02-0.5-1.18-0.56c-0.16-0.06-0.27-0.09-0.39,0.09c-0.12,0.18-0.44,0.56-0.54,0.67c-0.1,0.12-0.2,0.13-0.37,0.04c-0.17-0.09-0.73-0.27-1.39-0.86c-0.51-0.46-0.86-1.02-0.96-1.19c-0.1-0.17-0.01-0.27,0.08-0.35c0.08-0.08,0.17-0.19,0.25-0.29c0.08-0.1,0.11-0.17,0.17-0.29c0.06-0.12,0.03-0.22-0.01-0.3c-0.04-0.09-0.39-0.94-0.54-1.29c-0.14-0.34-0.29-0.29-0.39-0.29c-0.1,0-0.22,0-0.33,0c-0.12,0-0.31,0.04-0.47,0.22c-0.16,0.18-0.63,0.61-0.63,1.49c0,0.88,0.65,1.73,0.73,1.85c0.09,0.12,1.21,1.85,2.94,2.6c0.41,0.18,0.73,0.28,0.98,0.36c0.41,0.13,0.79,0.11,1.08,0.07c0.33-0.05,1.02-0.42,1.17-0.82C16.18,14.13,16.18,13.76,16.13,13.58" />
-            </svg>
-            <div className="text-left">
-              <p className="font-semibold">WhatsApp Us</p>
-              <a href="https://wa.me/254721429839" className="text-sm hover:underline">
-                +254 721 429 839
-              </a>
-            </div>
+          <div className="bg-white/10 max-w-md mx-auto py-4 px-6 rounded-lg">
+            <p className="font-semibold mb-2">WhatsApp Business Line</p>
+            <a href="https://wa.me/254710235750" className="text-lg hover:underline">
+              +254 710 235 750
+            </a>
           </div>
         </div>
       </section>
