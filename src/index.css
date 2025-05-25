@@ -90,6 +90,18 @@
   }
 }
 
+/* Outward pulsing animation */
+@keyframes pulse-outward {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
 /* Ensure smooth scrolling */
 html {
   scroll-behavior: smooth;
