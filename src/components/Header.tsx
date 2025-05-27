@@ -26,9 +26,9 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/6150b117-58ce-4d4b-81e7-bd4258e5c3c3.png" 
+              src="/lovable-uploads/0547951b-6d9a-4280-bf05-9611091528fa.png" 
               alt="AfriHub Capital" 
-              className="w-10 h-10 object-contain"
+              className="w-8 h-8 object-contain rounded-md"
             />
             <span className="text-xl font-bold text-gray-900">AfriHub Capital</span>
           </Link>

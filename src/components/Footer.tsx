@@ -11,9 +11,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">AH</span>
-              </div>
+              <img 
+                src="/lovable-uploads/0547951b-6d9a-4280-bf05-9611091528fa.png" 
+                alt="AfriHub Capital" 
+                className="w-10 h-10 object-contain rounded-md"
+              />
               <span className="text-xl font-bold">AfriHub Capital</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
