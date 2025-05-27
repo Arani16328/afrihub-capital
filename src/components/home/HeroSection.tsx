@@ -4,21 +4,17 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const slideImages = [
-  "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=1800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1800&auto=format&fit=crop"
+  "/lovable-uploads/ae603fe8-8cc2-4a27-b8d6-d505d035ccdf.png",
+  "/lovable-uploads/635769a9-bb5f-42a0-a60c-22012b52c80f.png",
+  "/lovable-uploads/6aa93d1d-72ff-4c17-876d-a0f6dbd847cf.png"
 ];
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === slideImages.length - 1 ? 0 : prev + 1));
-  };
-
   useEffect(() => {
     const interval = setInterval(() => {
-      nextSlide();
+      setCurrentSlide((prev) => (prev === slideImages.length - 1 ? 0 : prev + 1));
     }, 5000);
 
     return () => clearInterval(interval);

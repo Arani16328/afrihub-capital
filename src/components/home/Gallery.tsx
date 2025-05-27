@@ -5,20 +5,36 @@ import { Button } from "@/components/ui/button";
 
 const images = [
   {
-    url: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=400&auto=format&fit=crop",
-    alt: "Entrepreneurs collaborating in our incubation space"
+    url: "/lovable-uploads/1663d1e7-9447-4d46-b5a5-450c715d12af.png",
+    alt: "African entrepreneur using mobile technology"
   },
   {
-    url: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=400&auto=format&fit=crop",
-    alt: "Pitch presentation at Demo Day"
+    url: "/lovable-uploads/561a5510-f5f8-485d-a409-f63cab587022.png",
+    alt: "African farmer with corn harvest"
   },
   {
-    url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
-    alt: "Mentorship session with industry expert"
+    url: "/lovable-uploads/c73055b4-3d1a-4ef4-a3c7-a91a1bfa198e.png",
+    alt: "African entrepreneur in agricultural setting"
   },
   {
-    url: "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=400&auto=format&fit=crop",
-    alt: "Networking event with investors"
+    url: "/lovable-uploads/0ef4af95-dd2e-4ac8-bde2-f34d34f6bfd2.png",
+    alt: "African taxi driver entrepreneur"
+  },
+  {
+    url: "/lovable-uploads/4c2446e1-7734-49ef-a5b8-847fe60e52e1.png",
+    alt: "African artisan craftsman entrepreneur"
+  },
+  {
+    url: "/lovable-uploads/c46c513e-419b-46c3-af6e-91a7cd39d480.png",
+    alt: "African livestock farmer entrepreneur"
+  },
+  {
+    url: "/lovable-uploads/d935628b-b0ee-44f0-b6a4-3d8ce6463ca4.png",
+    alt: "African agricultural entrepreneur"
+  },
+  {
+    url: "/lovable-uploads/9a829a91-9a83-424b-add4-0280cdd05354.png",
+    alt: "African textile and fabric entrepreneur"
   }
 ];
 
@@ -39,7 +55,7 @@ const Gallery = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Our Community in Action</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Get a glimpse into our vibrant ecosystem of entrepreneurs, mentors, and innovators
+            Get a glimpse into our vibrant ecosystem of African entrepreneurs, mentors, and innovators making a difference across Kenya and beyond
           </p>
         </div>
 
