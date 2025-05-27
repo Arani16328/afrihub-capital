@@ -11,86 +11,86 @@ const SuccessStoriesPage = () => {
   const stories = [
     {
       id: 1,
-      founder: "Sarah Kimani",
-      founderImage: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face",
-      company: "GreenTech Solutions",
+      founder: "Catherine Robi",
+      founderImage: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png",
+      company: "Solar Mama Mboga",
       logo: "🌱",
       category: "Green Energy",
-      summary: "Started with a solar panel rental idea, GreenTech Solutions now powers over 10,000 rural homes across Kenya. Sarah's innovative financing model made clean energy accessible to low-income families.",
-      tags: ["KES 1.2M Raised", "Demo Day Winner", "10K+ Customers"],
+      summary: "Started with a solar panel rental idea for her vegetable stall, Catherine now powers over 200 mama mboga businesses across Nairobi. Her innovative financing model made clean energy accessible to small-scale vendors.",
+      tags: ["KES 500K Raised", "Demo Day Winner", "200+ Customers"],
       cohort: "2023",
-      fundingRaised: "KES 8.5M",
-      employees: 45,
+      fundingRaised: "KES 1.2M",
+      employees: 8,
       background: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=800&auto=format&fit=crop"
     },
     {
       id: 2,
-      founder: "David Mwangi",
-      founderImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
-      company: "LogiFlow Transport",
+      founder: "Grace Atieno",
+      founderImage: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png",
+      company: "Boda Connect",
       logo: "🚛",
       category: "Transport",
-      summary: "Revolutionizing last-mile delivery in East Africa with AI-powered route optimization. LogiFlow has reduced delivery costs by 40% for over 200 businesses across 3 countries.",
-      tags: ["Series A Ready", "3-Country Expansion", "200+ Partners"],
+      summary: "Revolutionizing boda boda operations in Kisumu with route optimization and digital payments. Grace has helped over 300 riders increase their daily earnings by 40% through better coordination.",
+      tags: ["Digital Payments", "300+ Riders", "40% Income Boost"],
       cohort: "2022",
-      fundingRaised: "KES 15M",
-      employees: 78,
+      fundingRaised: "KES 800K",
+      employees: 12,
       background: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?q=80&w=800&auto=format&fit=crop"
     },
     {
       id: 3,
-      founder: "Grace Wanjiku",
-      founderImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
-      company: "FarmLink Digital",
+      founder: "Chacha Mwita",
+      founderImage: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png",
+      company: "Shamba Digital",
       logo: "🌾",
       category: "Agriculture",
-      summary: "Connecting smallholder farmers directly to markets through a digital platform. Grace has helped over 5,000 farmers increase their income by an average of 60% through better market access.",
-      tags: ["5K+ Farmers", "60% Income Increase", "B-Corp Certified"],
+      summary: "Connecting smallholder maize farmers in Mara region directly to markets through WhatsApp. Chacha has helped over 500 farmers increase their income by 60% through better market access and fair pricing.",
+      tags: ["500+ Farmers", "60% Income Increase", "WhatsApp Platform"],
       cohort: "2023",
-      fundingRaised: "KES 6.2M",
-      employees: 32,
+      fundingRaised: "KES 600K",
+      employees: 6,
       background: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=800&auto=format&fit=crop"
     },
     {
       id: 4,
       founder: "James Ochieng",
-      founderImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-      company: "PayPoint Kenya",
+      founderImage: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png",
+      company: "Kiosk Pay",
       logo: "💳",
       category: "FinTech",
-      summary: "Digital payment solution for informal businesses. James built a network of 8,000+ agents providing financial services to previously unbanked communities across rural Kenya.",
-      tags: ["8K+ Agents", "Financial Inclusion", "Rural Focus"],
+      summary: "Digital payment solution for local kiosks and shops. James built a network of 150+ agents providing M-Pesa services and micro-lending to previously unbanked communities in rural Kenya.",
+      tags: ["150+ Agents", "Micro-lending", "Rural Focus"],
       cohort: "2022",
-      fundingRaised: "KES 12M",
-      employees: 56,
+      fundingRaised: "KES 1M",
+      employees: 10,
       background: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop"
     },
     {
       id: 5,
       founder: "Mary Njeri",
-      founderImage: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&crop=face",
-      company: "EcoMarket",
+      founderImage: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png",
+      company: "Local Craft Market",
       logo: "🛒",
       category: "Retail",
-      summary: "Online marketplace for sustainable and locally-made products. Mary has empowered over 1,500 local artisans and eco-friendly businesses to reach customers nationwide.",
-      tags: ["1.5K+ Vendors", "Sustainable Focus", "Nationwide Delivery"],
+      summary: "Online marketplace for local craftsmen and women. Mary has empowered over 200 local artisans to reach customers across Kenya, increasing their average monthly income by 80%.",
+      tags: ["200+ Artisans", "Local Focus", "80% Income Growth"],
       cohort: "2024",
-      fundingRaised: "KES 4.8M",
-      employees: 28,
+      fundingRaised: "KES 700K",
+      employees: 5,
       background: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=800&auto=format&fit=crop"
     },
     {
       id: 6,
       founder: "Peter Kiprotich",
-      founderImage: "https://images.unsplash.com/photo-1566492031773-4f4e44671d66?w=300&h=300&fit=crop&crop=face",
-      company: "WasteWise",
+      founderImage: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png",
+      company: "Waste2Energy Eldoret",
       logo: "♻️",
       category: "Green Energy",
-      summary: "Waste-to-energy solutions for urban areas. Peter's innovative biogas systems have processed over 10,000 tons of organic waste while generating clean energy for 500+ households.",
-      tags: ["10K+ Tons Processed", "500+ Households", "Clean Energy"],
+      summary: "Waste-to-energy solutions for Eldoret town. Peter's biogas systems have processed over 2,000 tons of organic waste while generating clean cooking gas for 100+ local households.",
+      tags: ["2K+ Tons Processed", "100+ Households", "Clean Cooking Gas"],
       cohort: "2023",
-      fundingRaised: "KES 7.3M",
-      employees: 38,
+      fundingRaised: "KES 900K",
+      employees: 7,
       background: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=800&auto=format&fit=crop"
     }
   ];
@@ -107,27 +107,27 @@ const SuccessStoriesPage = () => {
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Startups That Made It
+              Local Businesses That Made It
             </h1>
             <p className="text-xl mb-8">
-              Meet the entrepreneurs who transformed their ideas into thriving businesses 
+              Meet the local Kenyan entrepreneurs who transformed their small business ideas into thriving enterprises 
               with AfriHub Capital's support.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
               <div className="bg-white/10 p-4 rounded-lg">
                 <div className="text-2xl font-bold">150+</div>
-                <div className="text-sm">Startups Funded</div>
+                <div className="text-sm">Local Businesses Funded</div>
               </div>
               <div className="bg-white/10 p-4 rounded-lg">
                 <div className="text-2xl font-bold">87%</div>
                 <div className="text-sm">Success Rate</div>
               </div>
               <div className="bg-white/10 p-4 rounded-lg">
-                <div className="text-2xl font-bold">KES 2.5B+</div>
+                <div className="text-2xl font-bold">KES 60M</div>
                 <div className="text-sm">Total Raised</div>
               </div>
               <div className="bg-white/10 p-4 rounded-lg">
-                <div className="text-2xl font-bold">5,000+</div>
+                <div className="text-2xl font-bold">1,500+</div>
                 <div className="text-sm">Jobs Created</div>
               </div>
             </div>
@@ -235,29 +235,29 @@ const SuccessStoriesPage = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Collective Impact</h2>
             <p className="text-xl max-w-3xl mx-auto">
-              Together, our portfolio companies are transforming Africa's economy
+              Together, our local portfolio businesses are transforming Kenya's economy
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <TrendingUp className="h-12 w-12 mx-auto mb-4" />
-              <div className="text-3xl font-bold mb-2">KES 2.5B+</div>
+              <div className="text-3xl font-bold mb-2">KES 100M</div>
               <p className="text-blue-100">Total Valuation</p>
             </div>
             <div className="text-center">
               <Users className="h-12 w-12 mx-auto mb-4" />
-              <div className="text-3xl font-bold mb-2">5,000+</div>
+              <div className="text-3xl font-bold mb-2">1,500+</div>
               <p className="text-blue-100">Jobs Created</p>
             </div>
             <div className="text-center">
               <Award className="h-12 w-12 mx-auto mb-4" />
-              <div className="text-3xl font-bold mb-2">50M+</div>
+              <div className="text-3xl font-bold mb-2">4,500</div>
               <p className="text-blue-100">Lives Impacted</p>
             </div>
             <div className="text-center">
               <ArrowRight className="h-12 w-12 mx-auto mb-4" />
-              <div className="text-3xl font-bold mb-2">25</div>
+              <div className="text-3xl font-bold mb-2">100</div>
               <p className="text-blue-100">Successful Exits</p>
             </div>
           </div>
@@ -270,8 +270,11 @@ const SuccessStoriesPage = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
             Ready to Write Your Success Story?
           </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join the next generation of African entrepreneurs building businesses that matter.
+          <p className="text-xl text-gray-600 mb-4 max-w-2xl mx-auto">
+            Join the next generation of Kenyan entrepreneurs building local businesses that matter.
+          </p>
+          <p className="text-lg text-blue-600 font-semibold mb-8">
+            Application deadline for next cohort: June 31, 2025
           </p>
           <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-semibold">
             Apply Now

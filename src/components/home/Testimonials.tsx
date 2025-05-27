@@ -5,24 +5,24 @@ import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    quote: "AfriHub Capital transformed my agricultural tech idea into a thriving business. The mentorship and funding were game-changers for my startup.",
-    name: "Amara K.",
-    role: "CEO, AgriTech Solutions",
-    avatar: "https://randomuser.me/api/portraits/women/79.jpg"
+    quote: "AfriHub Capital transformed my mama mboga business into a thriving enterprise. The mentorship and funding were game-changers for my vegetable stall.",
+    name: "Grace Wanjiku",
+    role: "Owner, Wanjiku Fresh Vegetables",
+    avatar: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png"
   },
   {
     id: 2,
-    quote: "The 6-month incubation program gave me the tools and network I needed to scale my fintech startup across three African countries.",
-    name: "Kwame M.",
-    role: "Founder, PayConnect",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+    quote: "The 6-month incubation program gave me the tools and network I needed to scale my boda boda business across three counties in Kenya.",
+    name: "Samuel Kiprop",
+    role: "Founder, Boda Connect Kenya",
+    avatar: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png"
   },
   {
     id: 3,
-    quote: "From idea validation to Series A funding, AfriHub Capital has been with us every step of the way. Now we're impacting millions of lives.",
-    name: "Fatima N.",
-    role: "Co-founder, HealthTech Africa",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg"
+    quote: "From a small hardware shop to a regional supplier, AfriHub Capital has been with us every step of the way. Now we're impacting thousands of construction workers.",
+    name: "Catherine Nyong'o",
+    role: "Co-founder, Build Kenya Hardware",
+    avatar: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png"
   }
 ];
 
@@ -43,7 +43,7 @@ const Testimonials = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Success Stories</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Hear from entrepreneurs who have transformed their lives and communities through our programs
+            Hear from local Kenyan entrepreneurs who have transformed their lives and communities through our programs
           </p>
         </div>
 
