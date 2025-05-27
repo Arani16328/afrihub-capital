@@ -1,13 +1,12 @@
 
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const slideImages = [
-  "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=1800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1800&auto=format&fit=crop"
+  "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=1800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1800&auto=format&fit=crop"
 ];
 
 const HeroSection = () => {
@@ -15,10 +14,6 @@ const HeroSection = () => {
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === slideImages.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slideImages.length - 1 : prev - 1));
   };
 
   useEffect(() => {
@@ -81,20 +76,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-
-      {/* Navigation arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-900 p-2 rounded-full"
-      >
-        <ChevronLeft size={24} />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-900 p-2 rounded-full"
-      >
-        <ChevronRight size={24} />
-      </button>
 
       {/* Indicators */}
       <div className="absolute bottom-4 left-0 right-0">

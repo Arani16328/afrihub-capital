@@ -7,44 +7,44 @@ const programs = [
   {
     id: "pre-incubation",
     title: "Pre-Incubation Program",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=500&auto=format&fit=crop",
     description: "3-month program to validate your business idea and develop a solid foundation",
-    path: "/program"
+    path: "/programs/pre-incubation"
   },
   {
     id: "incubation",
     title: "Full Incubation Program",
-    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=500&auto=format&fit=crop",
     description: "6-month intensive program with mentorship, training, and funding opportunities",
-    path: "/program"
+    path: "/programs/incubation"
   },
   {
     id: "acceleration",
     title: "Acceleration Program",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=500&auto=format&fit=crop",
     description: "Fast-track growth program for established startups ready to scale",
-    path: "/program"
+    path: "/programs/acceleration"
   },
   {
     id: "funding",
     title: "Funding & Investment",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?q=80&w=500&auto=format&fit=crop",
     description: "Connect with investors and access funding from seed to Series A",
-    path: "/funding"
+    path: "/programs/funding"
   },
   {
     id: "mentorship",
     title: "Mentorship Network",
-    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=500&auto=format&fit=crop",
     description: "One-on-one guidance from successful entrepreneurs and industry experts",
-    path: "/program"
+    path: "/programs/mentorship"
   },
   {
     id: "community",
     title: "Entrepreneur Community",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=500&auto=format&fit=crop",
     description: "Join a vibrant community of like-minded entrepreneurs across Africa",
-    path: "/about"
+    path: "/programs/community"
   }
 ];
 
