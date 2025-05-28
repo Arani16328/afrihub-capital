@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, Award, Users } from "lucide-react";
@@ -12,7 +11,7 @@ const SuccessStoriesPage = () => {
     {
       id: 1,
       founder: "Catherine Robi",
-      founderImage: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png",
+      founderImage: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg",
       company: "Solar Mama Mboga",
       logo: "🌱",
       category: "Green Energy",
@@ -26,7 +25,7 @@ const SuccessStoriesPage = () => {
     {
       id: 2,
       founder: "Grace Atieno",
-      founderImage: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png",
+      founderImage: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg",
       company: "Boda Connect",
       logo: "🚛",
       category: "Transport",
@@ -40,7 +39,7 @@ const SuccessStoriesPage = () => {
     {
       id: 3,
       founder: "Chacha Mwita",
-      founderImage: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png",
+      founderImage: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg",
       company: "Shamba Digital",
       logo: "🌾",
       category: "Agriculture",
@@ -54,7 +53,7 @@ const SuccessStoriesPage = () => {
     {
       id: 4,
       founder: "James Ochieng",
-      founderImage: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png",
+      founderImage: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg",
       company: "Kiosk Pay",
       logo: "💳",
       category: "FinTech",
@@ -68,7 +67,7 @@ const SuccessStoriesPage = () => {
     {
       id: 5,
       founder: "Mary Njeri",
-      founderImage: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png",
+      founderImage: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg",
       company: "Local Craft Market",
       logo: "🛒",
       category: "Retail",
@@ -82,7 +81,7 @@ const SuccessStoriesPage = () => {
     {
       id: 6,
       founder: "Peter Kiprotich",
-      founderImage: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png",
+      founderImage: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg",
       company: "Waste2Energy Eldoret",
       logo: "♻️",
       category: "Green Energy",

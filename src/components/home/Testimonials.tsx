@@ -8,21 +8,21 @@ const testimonials = [
     quote: "AfriHub Capital transformed my mama mboga business into a thriving enterprise. The mentorship and funding were game-changers for my vegetable stall.",
     name: "Grace Wanjiku",
     role: "Owner, Wanjiku Fresh Vegetables",
-    avatar: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png"
+    avatar: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg"
   },
   {
     id: 2,
     quote: "The 6-month incubation program gave me the tools and network I needed to scale my boda boda business across three counties in Kenya.",
     name: "Samuel Kiprop",
     role: "Founder, Boda Connect Kenya",
-    avatar: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png"
+    avatar: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg"
   },
   {
     id: 3,
     quote: "From a small hardware shop to a regional supplier, AfriHub Capital has been with us every step of the way. Now we're impacting thousands of construction workers.",
     name: "Catherine Nyong'o",
     role: "Co-founder, Build Kenya Hardware",
-    avatar: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png"
+    avatar: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg"
   }
 ];
 

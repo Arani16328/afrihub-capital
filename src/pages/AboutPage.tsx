@@ -1,4 +1,3 @@
-
 import { CheckCircle, Target, Eye, Users } from "lucide-react";
 
 const AboutPage = () => {
@@ -7,55 +6,55 @@ const AboutPage = () => {
       name: "Mr. Peter Mohagachi",
       role: "CEO & Founder",
       bio: "Experienced entrepreneur and startup ecosystem developer committed to empowering local Kenyan businesses",
-      image: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png"
+      image: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg"
     },
     {
       name: "Mrs. Juliana Mogendi",
       role: "Investment Director",
       bio: "Former investment banker with expertise in African startup financing and growth strategies",
-      image: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png"
+      image: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg"
     },
     {
       name: "Mr. Paul Mohegete",
       role: "Operations Manager",
       bio: "Operations expert with deep understanding of local business challenges and solutions",
-      image: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png"
+      image: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg"
     },
     {
       name: "Christine Ghati",
       role: "Marketing & Sales Manager",
       bio: "Marketing professional specializing in reaching and engaging local Kenyan entrepreneurs",
-      image: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png"
+      image: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg"
     },
     {
       name: "Mr. Philbert Burudi",
       role: "International Relations Manager",
       bio: "International development expert facilitating partnerships and cross-border opportunities",
-      image: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png"
+      image: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg"
     },
     {
       name: "Mr. Samson Otieno",
       role: "Finance & Accounting Manager",
       bio: "Financial expert ensuring transparent and efficient fund management for our entrepreneurs",
-      image: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png"
+      image: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg"
     },
     {
       name: "Miss. Naomi",
       role: "Entrepreneurship Program Coordinator",
       bio: "Program coordinator dedicated to supporting local entrepreneurs through their business journey",
-      image: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png"
+      image: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg"
     },
     {
       name: "Patrick Chalo",
       role: "ICT & Communication Officer",
       bio: "Technology expert ensuring seamless communication and digital infrastructure for our programs",
-      image: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png"
+      image: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg"
     },
     {
       name: "Dr. Mary Anai",
       role: "Strategic Advisor",
       bio: "Strategic advisor specializing in African economic development and local business growth",
-      image: "/lovable-uploads/a9382e8c-e38c-497b-818c-4b6684f236ee.png"
+      image: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg"
     }
   ];
 
