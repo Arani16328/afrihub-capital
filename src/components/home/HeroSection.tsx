@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const slideImages = [
-  "/lovable-uploads/ae603fe8-8cc2-4a27-b8d6-d505d035ccdf.png",
-  "/lovable-uploads/635769a9-bb5f-42a0-a60c-22012b52c80f.png",
-  "/lovable-uploads/6aa93d1d-72ff-4c17-876d-a0f6dbd847cf.png"
+  "https://i.postimg.cc/Jnb0fpb6/afr1.jpg",
+  "https://i.postimg.cc/3JrNqCW1/afr2.jpg",
+  "https://i.postimg.cc/zXdvYbgr/afr3.jpg"
 ];
 
 const HeroSection = () => {

@@ -5,35 +5,35 @@ import { Button } from "@/components/ui/button";
 
 const images = [
   {
-    url: "/lovable-uploads/1663d1e7-9447-4d46-b5a5-450c715d12af.png",
+    url: "https://i.postimg.cc/Hnzxxjvb/afr4.jpg",
     alt: "African entrepreneur using mobile technology"
   },
   {
-    url: "/lovable-uploads/561a5510-f5f8-485d-a409-f63cab587022.png",
+    url: "https://i.postimg.cc/Zn4n46HT/afr5.jpg",
     alt: "African farmer with corn harvest"
   },
   {
-    url: "/lovable-uploads/c73055b4-3d1a-4ef4-a3c7-a91a1bfa198e.png",
+    url: "https://i.postimg.cc/DfPm5Yfm/afr7.jpg",
     alt: "African entrepreneur in agricultural setting"
   },
   {
-    url: "/lovable-uploads/0ef4af95-dd2e-4ac8-bde2-f34d34f6bfd2.png",
+    url: "https://i.postimg.cc/3xdR88XD/afr8.jpg",
     alt: "African taxi driver entrepreneur"
   },
   {
-    url: "/lovable-uploads/4c2446e1-7734-49ef-a5b8-847fe60e52e1.png",
+    url: "https://i.postimg.cc/5tz2zsk4/afr9.jpg",
     alt: "African artisan craftsman entrepreneur"
   },
   {
-    url: "/lovable-uploads/c46c513e-419b-46c3-af6e-91a7cd39d480.png",
+    url: "https://i.postimg.cc/2SM53sG9/afr10.jpg",
     alt: "African livestock farmer entrepreneur"
   },
   {
-    url: "/lovable-uploads/d935628b-b0ee-44f0-b6a4-3d8ce6463ca4.png",
+    url: "https://i.postimg.cc/Y9wqzQJ1/afr11.jpg",
     alt: "African agricultural entrepreneur"
   },
   {
-    url: "/lovable-uploads/9a829a91-9a83-424b-add4-0280cdd05354.png",
+    url: "https://i.postimg.cc/V6BsGd82/afr12.jpg",
     alt: "African textile and fabric entrepreneur"
   }
 ];
