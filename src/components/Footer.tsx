@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <img 
-                src="/lovable-uploads/0547951b-6d9a-4280-bf05-9611091528fa.png" 
+                src="https://i.postimg.cc/PrBGDdGD/AHC-2-Logo.png" 
                 alt="AfriHub Capital" 
                 className="w-10 h-10 object-contain rounded-md"
               />
