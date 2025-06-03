@@ -9,7 +9,7 @@ const features = [
   },
   {
     title: "Seed Funding & Investment",
-    description: "Access to funding opportunities from $5K to $50K for promising startups",
+    description: "Access to funding opportunities from KES 5K to KES 50K for promising startups",
     icon: TrendingUp
   },
   {

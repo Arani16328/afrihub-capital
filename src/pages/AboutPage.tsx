@@ -85,9 +85,9 @@ const AboutPage = () => {
               About AfriHub Capital
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              We're building the future of Kenyan entrepreneurship, one local business at a time. 
+              We're building the future of African entrepreneurship, one local business at a time. 
               Our mission is to identify, fund, and accelerate unbankable businesses 
-              that will drive Kenya's economic transformation.
+              that will drive Africa's economic transformation.
             </p>
           </div>
         </div>
@@ -103,8 +103,8 @@ const AboutPage = () => {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-blue-800">Our Vision</h3>
               <p className="text-gray-700 text-lg">
-                To become Kenya's leading startup incubator, fostering innovation and entrepreneurship 
-                among local, unbankable businesses that create sustainable economic growth and social impact.
+                To become Africa's leading startup incubator, fostering innovation and entrepreneurship 
+                among local, unbankable businesses that create sustainable economic growth and social impact across the African continent.
               </p>
             </div>
             
@@ -114,7 +114,7 @@ const AboutPage = () => {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-purple-800">Our Mission</h3>
               <p className="text-gray-700 text-lg">
-                To provide local Kenyan entrepreneurs with the funding, mentorship, and ecosystem support 
+                To provide local African entrepreneurs with the funding, mentorship, and ecosystem support 
                 needed to transform their business ideas into scalable enterprises that solve real community problems.
               </p>
             </div>
@@ -235,7 +235,7 @@ const AboutPage = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Partner With Us</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join us in empowering local Kenyan entrepreneurs and creating lasting economic impact
+              Join us in empowering local African entrepreneurs and creating lasting economic and employment opportunities among African youths
             </p>
           </div>
 
@@ -253,7 +253,7 @@ const AboutPage = () => {
               <div key={index} className="bg-white p-6 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
                 <h3 className="font-bold text-lg mb-2 text-blue-800">{option}</h3>
                 <p className="text-gray-600 text-sm">
-                  Join our mission to support local Kenyan businesses and create economic opportunities.
+                  Join our mission to support local African businesses and create economic and employment opportunities.
                 </p>
               </div>
             ))}

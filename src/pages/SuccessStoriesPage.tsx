@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, Award, Users } from "lucide-react";
@@ -5,7 +6,7 @@ import { ArrowRight, TrendingUp, Award, Users } from "lucide-react";
 const SuccessStoriesPage = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
   
-  const filters = ["All", "Retail", "Agriculture", "Green Energy", "Transport", "FinTech"];
+  const filters = ["All", "Retail", "Agriculture", "Green Energy", "Transport", "FinTech", "Cryptocurrency", "Construction"];
 
   const stories = [
     {
@@ -15,7 +16,7 @@ const SuccessStoriesPage = () => {
       company: "Solar Mama Mboga",
       logo: "🌱",
       category: "Green Energy",
-      summary: "Started with a solar panel rental idea for her vegetable stall, Catherine now powers over 200 mama mboga businesses across Nairobi. Her innovative financing model made clean energy accessible to small-scale vendors.",
+      summary: "Started with a solar panel rental idea for her vegetable stall in Eastleigh, Catherine now powers over 200 mama mboga businesses across Nairobi. Her innovative financing model made clean energy accessible to small-scale vendors in local markets.",
       tags: ["KES 500K Raised", "Demo Day Winner", "200+ Customers"],
       cohort: "2023",
       fundingRaised: "KES 1.2M",
@@ -29,7 +30,7 @@ const SuccessStoriesPage = () => {
       company: "Boda Connect",
       logo: "🚛",
       category: "Transport",
-      summary: "Revolutionizing boda boda operations in Kisumu with route optimization and digital payments. Grace has helped over 300 riders increase their daily earnings by 40% through better coordination.",
+      summary: "Revolutionizing boda boda operations in Kisumu with route optimization and digital payments through M-Pesa integration. Grace has helped over 300 riders increase their daily earnings by 40% through better coordination and cashless transactions.",
       tags: ["Digital Payments", "300+ Riders", "40% Income Boost"],
       cohort: "2022",
       fundingRaised: "KES 800K",
@@ -43,7 +44,7 @@ const SuccessStoriesPage = () => {
       company: "Shamba Digital",
       logo: "🌾",
       category: "Agriculture",
-      summary: "Connecting smallholder maize farmers in Mara region directly to markets through WhatsApp. Chacha has helped over 500 farmers increase their income by 60% through better market access and fair pricing.",
+      summary: "Connecting smallholder maize farmers in Kuria West Migori County directly to markets through WhatsApp and SMS platforms. Chacha has helped over 500 farmers increase their income by 60% through better market access and fair pricing from local buyers.",
       tags: ["500+ Farmers", "60% Income Increase", "WhatsApp Platform"],
       cohort: "2023",
       fundingRaised: "KES 600K",
@@ -57,7 +58,7 @@ const SuccessStoriesPage = () => {
       company: "Kiosk Pay",
       logo: "💳",
       category: "FinTech",
-      summary: "Digital payment solution for local kiosks and shops. James built a network of 150+ agents providing M-Pesa services and micro-lending to previously unbanked communities in rural Kenya.",
+      summary: "Digital payment solution for local kiosks and duka shops in rural Kenya. James built a network of 150+ agents providing M-Pesa services and micro-lending to previously unbanked communities, focusing on small-scale traders and mama mbogas.",
       tags: ["150+ Agents", "Micro-lending", "Rural Focus"],
       cohort: "2022",
       fundingRaised: "KES 1M",
@@ -71,7 +72,7 @@ const SuccessStoriesPage = () => {
       company: "Local Craft Market",
       logo: "🛒",
       category: "Retail",
-      summary: "Online marketplace for local craftsmen and women. Mary has empowered over 200 local artisans to reach customers across Kenya, increasing their average monthly income by 80%.",
+      summary: "Online marketplace connecting local craftsmen and women from Kibera, Mathare, and other informal settlements to customers across Kenya. Mary has empowered over 200 local artisans making traditional Kenyan crafts, increasing their average monthly income by 80%.",
       tags: ["200+ Artisans", "Local Focus", "80% Income Growth"],
       cohort: "2024",
       fundingRaised: "KES 700K",
@@ -85,12 +86,40 @@ const SuccessStoriesPage = () => {
       company: "Waste2Energy Eldoret",
       logo: "♻️",
       category: "Green Energy",
-      summary: "Waste-to-energy solutions for Eldoret town. Peter's biogas systems have processed over 2,000 tons of organic waste while generating clean cooking gas for 100+ local households.",
+      summary: "Waste-to-energy solutions for Eldoret town and surrounding areas. Peter's biogas systems have processed over 2,000 tons of organic waste from local markets while generating clean cooking gas for 100+ households in informal settlements.",
       tags: ["2K+ Tons Processed", "100+ Households", "Clean Cooking Gas"],
       cohort: "2023",
       fundingRaised: "KES 900K",
       employees: 7,
       background: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      id: 7,
+      founder: "David Mwangi",
+      founderImage: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg",
+      company: "Crypto Kiosk Kenya",
+      logo: "₿",
+      category: "Cryptocurrency",
+      summary: "First cryptocurrency exchange platform serving rural Kenya through local agents. David established 50+ crypto kiosks in small towns, enabling farmers and small traders to access digital currency for cross-border remittances and savings.",
+      tags: ["50+ Kiosks", "Rural Crypto Access", "Cross-border Payments"],
+      cohort: "2024",
+      fundingRaised: "KES 1.5M",
+      employees: 15,
+      background: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      id: 8,
+      founder: "Susan Wambui",
+      founderImage: "https://i.postimg.cc/SKp8PY9G/Businessman-silhouette-avatar-profile-picture.jpg",
+      company: "Mjengo Smart",
+      logo: "🏗️",
+      category: "Construction",
+      summary: "Digital platform connecting local construction workers (fundis) with homeowners across Nairobi and Central Kenya. Susan has helped over 300 skilled workers find consistent employment while ensuring quality construction services for local communities.",
+      tags: ["300+ Workers", "Quality Assurance", "Local Employment"],
+      cohort: "2023",
+      fundingRaised: "KES 800K",
+      employees: 12,
+      background: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop"
     }
   ];
 
