@@ -1,3 +1,4 @@
+
 import { CheckCircle, Target, Eye, Users } from "lucide-react";
 
 const AboutPage = () => {
@@ -66,13 +67,34 @@ const AboutPage = () => {
   ];
 
   const partners = [
-    "Safaricom",
-    "Cooperative Bank",
-    "Kenya Chambers of Commerce",
-    "International Labour Organisation (ILO)",
-    "Elimu Master Hub Academy",
-    "Jibra Enterprise Company Ltd",
-    "BSM Crypto Africa Ltd"
+    {
+      name: "Safaricom",
+      logo: "https://i.postimg.cc/FsV7DrKB/SAF-MAIN-LOGO.jpg"
+    },
+    {
+      name: "Cooperative Bank",
+      logo: "https://i.postimg.cc/SRsYMH6K/co-operative-bank-of-kenya-seeklogo.png"
+    },
+    {
+      name: "Kenya Chambers of Commerce",
+      logo: "https://i.postimg.cc/yxFkqByW/Kenya-chamber-of-commerce.jpg"
+    },
+    {
+      name: "International Labour Organisation (ILO)",
+      logo: "https://i.postimg.cc/5NVXBYfz/international-labour-organization-ilo-seeklogo.png"
+    },
+    {
+      name: "Elimu Master Hub Academy",
+      logo: "https://i.postimg.cc/yNbJcLN6/Elimu-Masters-Hub-logo.jpg"
+    },
+    {
+      name: "Jibra Enterprise Company Ltd",
+      logo: null
+    },
+    {
+      name: "BSM Crypto Africa Ltd",
+      logo: "https://i.postimg.cc/y69J3XCB/BSM-Logo.jpg"
+    }
   ];
 
   return (
@@ -190,8 +212,16 @@ const AboutPage = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {partners.map((partner, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md flex items-center justify-center hover:shadow-lg transition-shadow duration-300">
-                <span className="text-gray-600 font-medium text-center">{partner}</span>
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md flex items-center justify-center hover:shadow-lg transition-shadow duration-300 min-h-[120px]">
+                {partner.logo ? (
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name}
+                    className="max-w-full max-h-16 object-contain"
+                  />
+                ) : (
+                  <span className="text-gray-600 font-medium text-center">{partner.name}</span>
+                )}
               </div>
             ))}
           </div>
