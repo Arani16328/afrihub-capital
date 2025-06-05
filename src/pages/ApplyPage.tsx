@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -61,10 +60,6 @@ const ApplyPage = () => {
               Take the first step toward transforming your startup idea into Africa's next success story. 
               Our application process is designed to identify the most promising entrepreneurs.
             </p>
-            <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
-              <p className="text-lg font-semibold mb-2">Next Application Deadline</p>
-              <p className="text-2xl font-bold text-yellow-400">March 31, 2025</p>
-            </div>
           </div>
         </div>
       </section>
