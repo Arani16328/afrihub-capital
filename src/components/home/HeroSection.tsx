@@ -42,7 +42,7 @@ const HeroSection = () => {
       {/* Content */}
       <div className="absolute inset-0 flex items-center">
         <div className="container-custom z-10">
-          <div className="max-w-2xl text-white pt-16 md:pt-0">
+          <div className="max-w-2xl text-white">
             <h5 className="bg-accent text-black inline-block px-3 py-1 rounded text-sm font-medium mb-4">
               EMPOWERING AFRICAN ENTREPRENEURS
             </h5>
