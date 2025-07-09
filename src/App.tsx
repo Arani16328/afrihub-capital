@@ -17,6 +17,7 @@ import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ErrorBoundary from "./components/ErrorBoundary";
 import ScrollToTop from "./components/ScrollToTop";
+import CookieBanner from "./components/CookieBanner";
 
 // Program Pages
 import PreIncubationPage from "./pages/programs/PreIncubationPage";
@@ -67,6 +68,7 @@ const App = () => {
             </Routes>
             <Footer />
             <WhatsAppButton />
+            <CookieBanner />
           </BrowserRouter>
         </TooltipProvider>
       </QueryClientProvider>
