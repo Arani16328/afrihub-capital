@@ -25,5 +25,9 @@ export default defineConfig(({ mode }) => ({
     outDir: "dist",
     assetsDir: "assets",
     sourcemap: false,
+    // Ensure public files are copied to build output
+    copyPublicDir: true,
   },
+  // Explicitly include public directory files
+  publicDir: "public",
 }));
